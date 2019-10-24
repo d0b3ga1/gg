@@ -12,10 +12,15 @@ app.secret_key = 'your secret key'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 # Thông tin về CSDL
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'admin'
-app.config['MYSQL_DB'] = 'crud'
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = 'admin'
+# app.config['MYSQL_DB'] = 'crud'
+app.config['MYSQL_HOST'] = 'us-cdbr-iron-east-05.cleardb.net'
+app.config['MYSQL_USER'] = 'b1df1b284d97c5'
+app.config['MYSQL_PASSWORD'] = 'd33a338c'
+app.config['MYSQL_DB'] = 'heroku_c4efcd520cec242'
+
 
 # khởi tạo object chứa thông tin vừa config để kết nối MySQL
 mysql = MySQL(app)
