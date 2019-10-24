@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="tamtm62">
+    <title>Admin page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/offcanvas.css') }}">
+
+</head>
+
+<body class="bg-light">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand mr-auto mr-lg-0" href="#">Demo</a>
+        <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('admin') }}">
+                        <i class="fas fa-home"></i>
+                        Trang Chủ <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                · ·
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile') }}">
+                        <i class="fas fa-user-circle"></i>
+                        Thông tin
+                    </a>
+                </li>
+                · ·
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('upload') }}">
+                        <i class="fas fa-upload"></i>
+                        Tải lên
+                    </a>
+                </li>
+                · ·
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Đăng xuất
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+        <br>
+        {%with messages = get_flashed_messages()%}
+        {%if messages%}
+        {% for message in messages %}
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-success rounded shadow-sm">
+            <div class="lh-100">
+                <h6 class="mb-0 text-white lh-100">{{message}}</h6>
+                <small></small>
+            </div>
+        </div>
+        {%endfor%}
+        {%endif%}
+        {%endwith%}
+
+        <!-- <form method="POST" action="{{ url_for('upload') }}" enctype=multipart/form-data> 
+            file : <input type="file" name="image"><br />
+            <input type="submit" value="submit">
+        </form> -->
+
+        <h4>Ảnh tải lên có thể được gắn vào news hoặc event</h4>
+        <form class="form-inline center-block" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+            <style>
+                @media (max-width: 767px) {
+                    h1 {
+                        font-size: 30px;
+                        font-size: 8vw
+                    }
+
+                    div#links {
+                        margin-top: 2em;
+                        margin-bottom: 1em
+                    }
+
+                    div.help_links {
+                        margin-top: -1em
+                    }
+
+                    .alert {
+                        max-width: 75%;
+                        display: inline-block;
+                        margin: 0.8em 0 0.5em;
+                        padding: 0.3em
+                    }
+
+                    .form-inline {
+                        max-width: 75%
+                    }
+
+                    input#submit {
+                        margin-top: 0.5em
+                    }
+                }
+
+                @media (min-width: 768px) {
+                    div #links {
+                        margin-top: 2.5em;
+                        margin-bottom: 3em
+                    }
+
+                    div.help_links {
+                        margin-top: -1em
+                    }
+
+                    .alert {
+                        max-width: 330px;
+                        display: inline-block;
+                        margin: 1em 0 0.5em;
+                        padding: 0.3em
+                    }
+                }
+
+                @media (min-width: 992px) {
+                    .vertical-align {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center
+                    }
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0
+                }
+
+                #browsebutton {
+                    background-color: white
+                }
+
+                #my-file-selector {
+                    display: none
+                }
+            </style>
+            <div class="input-group">
+                <label id="browsebutton" class="btn btn-default input-group-addon" for="my-file-selector">
+                    <input id="my-file-selector" name="image" type="file">
+                    Chọn ảnh...
+                </label>
+                <input type="text" class="form-control" readonly="">
+            </div>
+            <input class="btn btn-primary" id="submit" name="submit" type="submit" value="Tải lên">
+        </form>
+
+
+    </main>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/jquery-3.4.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/offcanvas.js') }}"></script>
+</body>
+
+</html>

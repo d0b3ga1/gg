@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="tamtm62">
+    <title>Admin page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/offcanvas.css') }}">
+
+</head>
+
+<body class="bg-light">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand mr-auto mr-lg-0" href="#">Demo</a>
+        <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('admin') }}">
+                        <i class="fas fa-home"></i>
+                        Trang Chủ <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                · ·
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile') }}">
+                        <i class="fas fa-user-circle"></i>
+                        Thông tin
+                    </a>
+                </li>
+                · ·
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('upload') }}">
+                        <i class="fas fa-upload"></i>
+                        Tải lên
+                    </a>
+                </li>
+                · ·
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Đăng xuất
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+        <h2>Thông tin</h2>
+        <div>
+            <p>Thông tin tài khoản:</p>
+            <table>
+                <tr>
+                    <td>Tên đăng nhập:</td>
+                    <td>{{ account['username'] }}</td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu:</td>
+                    <td>{{ account['password'] }}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{{ account['email'] }}</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/jquery-3.4.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap/offcanvas.js') }}"></script>
+</body>
+
+</html>
