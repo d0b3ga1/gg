@@ -29,8 +29,6 @@ INSERT INTO `article` (`type`, `imgname`, `title`, `content`) VALUES
 ('news', 'tintuc1.jpg', 'Lễ khai giảng cho sinh viên quốc tế năm học 2019 - 2020', 'NTTU – Hòa chung vào không khí hân hoan toàn Trường ĐH Nguyễn Tất Thành chào đón năm mới, sáng ngày 11/03/2019, được sự cho phép của ban lãnh đạo Nhà trường, ...');
 
 
-
-
 --
 -- Table structure for table `account`
 --

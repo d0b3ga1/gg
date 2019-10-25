@@ -44,7 +44,8 @@ def login():
         password = request.form['password']
         # kiểm tra xem user đã có trong MySQL chưa
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts WHERE username = %s AND password = %s', (username, password))
+        cursor.execute('SELECT * FROM accounts WHERE username = %s AND password = %s', (
+            username, password))
         # lấy 1 kq từ CSDL
         account = cursor.fetchone()
         # Nếu account tồn tại thì đưa vào home 
@@ -188,7 +189,8 @@ def insert():
         content = request.form['content']
         cur = mysql.connection.cursor()
         cur.execute(
-            "INSERT INTO article (type, imgname, title, content) VALUES (%s, %s, %s, %s)", (ctype, imgname, title, content))
+            "INSERT INTO article (type, imgname, title, content) VALUES (%s, %s, %s, %s)", (
+                ctype, imgname, title, content))
         mysql.connection.commit()
         return redirect(url_for('admin'))
 
